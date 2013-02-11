@@ -1,0 +1,41 @@
+//-MemCellType: PCRAM
+//-MemCellType: MRAM
+-MemCellType: SRAM
+//-MemCellType: DRAM
+
+-CellArea (F^2): 146
+-CellAspectRatio: 1.46
+
+//-CapacitanceOn (F): 1e-15
+//-CapacitanceOff (F): 1e-15
+
+//-ResistanceOn (ohm): 1000
+//-ResistanceOff (ohm): 1000000
+
+-ReadMode: voltage
+//-ReadMode: current   
+//-ReadVoltage (V): 1.3
+//-ReadCurrent (uA): 0
+
+//-VoltageDropAccessDevice (V): 1.0
+
+//-ResetMode: current
+//-ResetMode: voltage
+//-ResetVoltage (V): 1.8
+//-ResetCurrent (uA): 600
+//-ResetPulse (ns): 50
+
+//-SetMode: current
+//-SetMode: voltage
+//-SetVoltage (V): 1.8 
+//-SetCurrent (uA): 75
+//-SetPulse (ns): 400
+
+-AccessType: CMOS
+//-AccessType: BJT
+//-AccessType: diode
+
+-AccessCMOSWidth (F): 1.31
+//-DRAMCellCapacitance (F): 20e-15
+-SRAMCellNMOSWidth (F): 2.08
+-SRAMCellPMOSWidth (F): 1.23
