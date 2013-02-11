@@ -1,0 +1,16 @@
+-MemCellType: SLCNAND
+
+-CellArea (F^2): 4
+-CellAspectRatio: 1
+
+-GateCouplingRatio: 0.7
+
+-FlashEraseTime (ms): 1.25
+-FlashProgramTime (us): 200
+
+-FlashEraseVoltage (V): 16
+-FlashProgramVoltage (V): 6
+-FlashPassVoltage (V): 3.8
+
+-ReadMode: voltage  
+-ReadVoltage (V): 0.5
