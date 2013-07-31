@@ -81,7 +81,7 @@ void SubArray::Initialize(long long _numRow, long long _numColumn, bool _multipl
 	}
 
 	if (cell->memCellType == DRAM || cell->memCellType == eDRAM) {
-		if (muxSenseAmp > 0) {
+		if (muxSenseAmp > 1) {
 			/* DRAM does not allow muxed bitline because of its destructive readout */
 			invalid = true;
 			initialized = true;
