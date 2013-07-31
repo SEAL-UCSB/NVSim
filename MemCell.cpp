@@ -334,7 +334,7 @@ void MemCell::ReadCellFromFile(const string & inputFile)
 		}
 
 		if (!strncmp("-DRAMCellCapacitance", line, strlen("-DRAMCellCapacitance"))) {
-			if (memCellType != DRAM || memCellType != eDRAM)
+			if (memCellType != DRAM && memCellType != eDRAM)
 				cout << "Warning: The input of DRAM cell capacitance is ignored because the memory cell is not DRAM." << endl;
 			else
 				sscanf(line, "-DRAMCellCapacitance (F): %lf", &capDRAMCell);

@@ -480,8 +480,8 @@ void applyConstraint() {
 		exit(-1);
 	}
 	if (cell->memCellType == eDRAM) {
-		cout << "[ERROR] Embedded DRAM model is still under development" << endl;
-		exit(-1);
+		cout << "[Warning] Embedded DRAM model is still under development" << endl;
+		//exit(-1);
 	}
 	if (cell->memCellType == MLCNAND) {
 		cout << "[ERROR] MLC NAND flash model is still under development" << endl;

@@ -58,7 +58,7 @@ void SenseAmp::Initialize(long long _numColumn, bool _currentSense, double _sens
 	senseVoltage = _senseVoltage;
 	pitchSenseAmp = _pitchSenseAmp;
 
-	if (pitchSenseAmp <= tech->featureSize * 6) {
+	if (pitchSenseAmp <= tech->featureSize * 2) {
 		/* too small, cannot do the layout */
 		invalid = true;
 	}
