@@ -1,0 +1,129 @@
+NVSim - A performance, energy and area estimation tool
+for non-volatile memory (NVM)
+
+======================================================
+
+Sections
+
+    1. Overview
+    2. Compiling NVSim
+    3. Running NVSim
+    4. Configuring NVSim
+    5. Hacking NVSim
+    6. README Changelog
+
+------------------------------------------------------  
+
+1. Overview
+
+    NVSim models the area, timing, dynamic energy and 
+    leakage power of Phase-Change Memory (PCM), Spin-
+    Torque-Transfer RAM (STT-RAM), Resistive RAM
+    (ReRAM) or memristor, Floating Body Dynamic RAM
+    (FBDRAM) and Single-Level Cell NAND Flash.
+    NVSim uses the same modeling principles as the
+    well-known CACTI, but it starts from scratch on
+    the basis of a brand-new frame work with more
+    flexibility in terms of bank/mat/subarray
+    organization and periphral circuitry design. Such
+    flexibility is necessary for emerging non-volatile
+    memory technologies as the current status of most 
+    emerging NVMs is unknown. Thanks for trying NVSim!
+
+
+------------------------------------------------------
+
+2. Compiling NVSim
+
+    NVSim is programmed under GNU C++, and it can be 
+    compiled on both Unix-like OSes and Microsoft 
+    Windows 
+
+    2a. Under Linux
+
+        The tool can be built using make:
+
+        $ make
+
+        Running through make will automatically set 
+        the compile flags needed.
+
+
+------------------------------------------------------
+
+3. Running NVSim
+
+
+    If no .cfg file is specified, NVSim will load the 
+    default configuration file (nvsim.cfg)
+
+    $ ./nvsim
+
+    Actually, users can specify their own configurations
+    by passing the ".cfg" argument.
+
+    $ ./nvsim <custom>.cfg
+    
+
+------------------------------------------------------
+
+4. Configuring NVSim
+
+
+    NVSim can be configured using the configuration files.
+    Several example configuration files can be found in
+    the root directory of the source code. Note that most
+    of the configuration files are specified with small
+    capacity (< 128MB) as the current version of NVSim 
+    only models a single-bank. Multi-bank cache/memory is
+    in the to-do list of NVSim 2.0.
+
+    For example, 
+    sample_STTRAM_cache.cfg - A 8MB STT-RAM cache (both 
+    data and array) configured for design space exploration
+    sample_PCRAM.cfg - A 16MB PCM macro with fixed bank 
+    organization (H-tree, internal sensing)
+    sample_RRAM.cfg - A 2MB ReRAM macro with fixed bank
+    organization (bus-manner routing, external sensing)
+    A more detailed listing of configuration parameter 
+    names and potential values are on the NVSim wiki page.
+
+
+------------------------------------------------------
+
+5. Hacking NVSim
+
+
+    As mentioned in the overview, NVSim is meant to 
+    be flexible. Another level of flexibility is 
+    enabled when experts in NVM design Write their own
+    sense amplifier, voltage plane, charge pump
+    circuiitry etc. This can be done by creating a new
+    C++ file with a new class and instantiate the new
+    class in corresponding component. 
+
+
+------------------------------------------------------
+
+
+6. README changelog
+
+    09/16/2013 - Created first README (shared template
+    with NVMain)
+
+
+------------------------------------------------------
+
+Please refer to the following paper for a general
+introduction of the tool,
+"NVSim: A Circuit-Level Performance, Energy and Area
+Model for Emerging Nonvolatile Memory", IEEE TCAD 2012
+
+At the mean time, we are working on the documentation
+of a detailed technical report. If you have any comments,
+questions, or suggestions please contact us via email.
+
+Cong Xu <czx102@cse.psu.edu>
+Xiangyu Dong <xydong@cse.psu.edu>
+
+
