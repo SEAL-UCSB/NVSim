@@ -75,7 +75,8 @@ public:
 	double readVoltage;		/* Read voltage */
 	double readCurrent;		/* Read current */
 	double minSenseVoltage; /* Minimum sense voltage */
-	double readEnergy;      /* Read energy per cell (pJ)*/
+        double wordlineBoostRatio; /*TO-DO: function not realized: ratio of boost wordline voltage to vdd */
+	double readPower;       /* Read power per bitline (uW)*/
 	bool   resetMode;		/* true = voltage-mode, false = current-mode */
 	double resetVoltage;	/* Reset voltage */
 	double resetCurrent;	/* Reset current */

@@ -8,14 +8,15 @@
 -ReadMode: current
 -ReadVoltage (V): 0.25
 -MinSenseVoltage (mV): 25
+-ReadPower (uW): 23.4
 -ResetMode: current
 -ResetCurrent (uA): 40.82
 -ResetPulse (ns): 5
--ResetEnergy (pJ): 0.193895
+-ResetEnergy (pJ): 0.252
 -SetMode: current
 -SetCurrent (uA): 40.82
 -SetPulse (ns): 5
--SetEnergy (pJ): 0.193895
+-SetEnergy (pJ): 0.252
 -AccessType: CMOS
 -VoltageDropAccessDevice (V): 0.15
 -AccessCMOSWidth (F): 8.5

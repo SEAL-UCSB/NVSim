@@ -240,9 +240,9 @@ void SubArray::Initialize(long long _numRow, long long _numColumn, bool _multipl
 
 	/* Caclulate the load resistance and capacitance for Mux Decoders */
 	double capMuxLoad, resMuxLoad;
-    resMuxLoad = resWordline;
-    capMuxLoad = CalculateGateCap(minBitlineMuxWidth, *tech) * numColumn;
-    capMuxLoad += capWordline;
+        resMuxLoad = resWordline;
+        capMuxLoad = CalculateGateCap(minBitlineMuxWidth, *tech) * numColumn;
+        capMuxLoad += capWordline;
 
 	/* Add transistor resistance/capacitance */
 	if (cell->memCellType == SRAM) {
@@ -710,10 +710,10 @@ void SubArray::CalculatePower() {
 						(voltagePrecharge * voltagePrecharge - voltageMemCellOn * voltageMemCellOn ) * numColumn;
 			}
 
-			if (cell->readEnergy == 0) {
+			if (cell->readPower == 0) 
 				cellReadEnergy = 2 * cell->CalculateReadPower() * senseAmp.readLatency; /* x2 is because of the reference cell */
-			} else
-				cellReadEnergy = 2 * cell->readEnergy;
+			else
+				cellReadEnergy = 2 * cell->readPower * senseAmp.readLatency;
 			cellReadEnergy *= numColumn / muxSenseAmp / muxOutputLev1 / muxOutputLev2;
 
 			/* Ignore the dynamic transition during the SET/RESET operation */
