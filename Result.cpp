@@ -413,7 +413,7 @@ void Result::print() {
 													+ bank->mat.subarray.senseAmpMuxLev1Decoder.readDynamicEnergy
 													+ bank->mat.subarray.senseAmpMuxLev2Decoder.readDynamicEnergy) << endl;
 	if (cell->memCellType == PCRAM || cell->memCellType == FBRAM || cell->memCellType == MRAM || cell->memCellType == memristor ) {
-		cout << "       |--- Cell Read Dynamic Energy   = " << TO_JOULE(bank->mat.subarray.cellReadEnergy) << endl;
+		cout << "       |--- Bitline & Cell Read Energy = " << TO_JOULE(bank->mat.subarray.cellReadEnergy) << endl;
 	}
 	if (inputParameter->internalSensing)
 		cout << "       |--- Senseamp Dynamic Energy    = " << TO_JOULE(bank->mat.subarray.senseAmp.readDynamicEnergy) << endl;
@@ -534,7 +534,7 @@ void Result::print() {
 														+ bank->mat.subarray.senseAmpMuxLev1.writeDynamicEnergy
 														+ bank->mat.subarray.senseAmpMuxLev2.writeDynamicEnergy) << endl;
 		if (cell->memCellType == MRAM) {
-			cout << "       |--- Cell Write Dynamic Energy  = " << TO_JOULE(bank->mat.subarray.cellResetEnergy) << endl;
+			cout << "       |--- Bitline & Cell Write Energy= " << TO_JOULE(bank->mat.subarray.cellResetEnergy) << endl;
 		}
 	}
 

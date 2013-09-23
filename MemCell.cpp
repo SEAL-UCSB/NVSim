@@ -43,28 +43,29 @@
 
 MemCell::MemCell() {
 	// TODO Auto-generated constructor stub
-	memCellType    = PCRAM;
-	area           = 0;
-	aspectRatio    = 0;
-	resistanceOn   = 0;
-	resistanceOff  = 0;
-	readMode       = true;
-	readVoltage    = 0;
-	readCurrent    = 0;
-	readEnergy     = 0;
-	resetMode      = true;
-	resetVoltage   = 0;
-	resetCurrent   = 0;
-	minSenseVoltage = 0.08;
-	resetPulse     = 0;
-	resetEnergy    = 0;
-	setMode        = true;
-	setVoltage     = 0;
-	setCurrent     = 0;
-	setPulse       = 0;
-	accessType     = CMOS_access;
-	processNode    = 0;
-	setEnergy      = 0;
+	memCellType         = PCRAM;
+	area                = 0;
+	aspectRatio         = 0;
+	resistanceOn        = 0;
+	resistanceOff       = 0;
+	readMode            = true;
+	readVoltage         = 0;
+	readCurrent         = 0;
+	readPower           = 0;
+        wordlineBoostRatio  = 1.0;
+	resetMode           = true;
+	resetVoltage        = 0;
+	resetCurrent        = 0;
+	minSenseVoltage     = 0.08;
+	resetPulse          = 0;
+	resetEnergy         = 0;
+	setMode             = true;
+	setVoltage          = 0;
+	setCurrent          = 0;
+	setPulse            = 0;
+	accessType          = CMOS_access;
+	processNode         = 0;
+	setEnergy           = 0;
 
 	/* Optional */
 	stitching         = 0;
@@ -225,9 +226,13 @@ void MemCell::ReadCellFromFile(const string & inputFile)
 			readCurrent /= 1e6;
 			continue;
 		}
-		if (!strncmp("-ReadEnergy", line, strlen("-ReadEnergy"))) {
-			sscanf(line, "-ReadEnergy (pJ): %lf", &readEnergy);
-			readEnergy /= 1e12;
+		if (!strncmp("-ReadPower", line, strlen("-ReadPower"))) {
+			sscanf(line, "-ReadPower (uW): %lf", &readPower);
+			readPower /= 1e6;
+			continue;
+		}
+		if (!strncmp("-WordlineBoostRatio", line, strlen("-WordlineBoostRatio"))) {
+			sscanf(line, "-WordlineBoostRatio: %lf", &wordlineBoostRatio);
 			continue;
 		}
 		if (!strncmp("-MinSenseVoltage", line, strlen("-MinSenseVoltage"))) {
@@ -564,16 +569,15 @@ void MemCell::CalculateWriteEnergy() {
 }
 
 double MemCell::CalculateReadPower() { /* TO-DO consider charge pumped read voltage */
-	if (readEnergy == 0) {
+	if (readPower == 0) {
 		if (cell->readMode) {	/* voltage-sensing */
 			if (readVoltage == 0) { /* Current-in voltage sensing */
 				return tech->vdd * readCurrent;
 			}
 			if (readCurrent == 0) { /*Voltage-divider sensing */
-				double resInSerialForSenseAmp, resEquivalentOn, maxBitlineCurrent;
+				double resInSerialForSenseAmp, maxBitlineCurrent;
 				resInSerialForSenseAmp = sqrt(resistanceOn * resistanceOff);
-				resEquivalentOn = resistanceOn * resInSerialForSenseAmp / (resistanceOn + resInSerialForSenseAmp);
-				maxBitlineCurrent = (readVoltage - voltageDropAccessDevice) / resEquivalentOn;
+				maxBitlineCurrent = (readVoltage - voltageDropAccessDevice) / (resistanceOn + resInSerialForSenseAmp);
 				return tech->vdd * maxBitlineCurrent;
 			}
 		} else { /* current-sensing */
