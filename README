@@ -83,8 +83,7 @@ Sections
     data and array) configured for design space exploration
     sample_PCRAM.cfg - A 16MB PCM macro with fixed bank 
     organization (H-tree, internal sensing)
-    sample_RRAM.cfg - A 2MB ReRAM macro with fixed bank
-    organization (bus-manner routing, external sensing)
+    sample_NVM_macro.cfg - A generic NVM macro
     A more detailed listing of configuration parameter 
     names and potential values are on the NVSim wiki page.
 
