@@ -16,7 +16,7 @@
 
 -ReadMode: current
 -ReadVoltage (V): 0.4
--ReadEnergy (pJ): 0.1
+-ReadPower (uW): 0.16
 
 -ResetMode: voltage
 -ResetVoltage (V): 2.0
