@@ -104,15 +104,6 @@ Sections
 
 ------------------------------------------------------
 
-
-6. README changelog
-
-    09/16/2013 - Created first README (shared template
-    with NVMain)
-
-
-------------------------------------------------------
-
 Please refer to the following paper for a general
 introduction of the tool,
 "NVSim: A Circuit-Level Performance, Energy and Area
