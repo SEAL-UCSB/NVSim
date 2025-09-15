@@ -9,7 +9,7 @@ RM := rm -f
 
 # define build options
 # compile options
-CXXFLAGS := -Wall
+CXXFLAGS := -Wall --std=c++14
 # link options
 LDFLAGS :=
 # link librarires
